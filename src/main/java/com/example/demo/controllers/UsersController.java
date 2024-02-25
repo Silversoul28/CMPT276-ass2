@@ -97,13 +97,13 @@ public class UsersController {
         return "users/Start";
     }
 
-    @GetMapping("/users/{name}")
-    public String getUser(@PathVariable("name") String name, Model model){
+    @GetMapping("/users/{uid}")
+    public String getUser(@PathVariable("uid") int uid, Model model){
         System.out.println("Getting user");
         // get all users from database
-        List<User> users = userRepo.findByName(name);
+        List<User> users = userRepo.findByUid(uid);
         // end of database call
-        model.addAttribute("us", users);
+        model.addAttribute("uss", users);
         return "users/Users";
     }
     // @RequestMapping(value = "/users/{name}", method=RequestMethod.GET)

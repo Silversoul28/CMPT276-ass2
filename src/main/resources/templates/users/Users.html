@@ -6,7 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <span th:text="${user.gpa}"></span><br>
-    successs
+    <div th:each="user:${uss}">
+        <span th:text="${user.gpa}"></span><br>
+        successs
+    </div>
 </body>
 </html>
