@@ -43,3 +43,6 @@ public class DemoApplication {
 // psql -h dpg-cn1ckf0cmk4c73dkv9kg-a.oregon-postgres.render.com -U database_nx7a_user -d database_nx7a
 
 //S9amJOHDpFvnXKjGuoQtixsb3LIdMfZw
+
+// SELECT * FROM users;
+//DROP TABLE table;

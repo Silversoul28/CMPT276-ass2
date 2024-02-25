@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- <script src="/js/jScript.js" defer></script> -->
+    <style th:inline="css">
+        /* .gpa {
+          text-align: center;
+        } */
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>USERS</h1>
+            
+    <div th:each="user:${us}">
+        <!-- <span th:text="${user.colour}"></span><br> -->
+        <div class="users" th:style="'border: 3px solid ' + ${user.colour} + '; width: ' + ${user.weight} + 'px; height: ' + ${user.height} + 'px;'">
+            <div class="all"  th:style="'font-size:'+${(user.height/10) + (user.weight/10)}+'pt; color: '+ ${user.colour} + ';'" >
+                <a th:href="@{/users/{name}(name=${user.name})}" ><span th:text="${user.name}"></span></a><br>
+                <span th:text="${user.gpa}"></span><br>
+                <span th:text="${user.gpa}"></span><br>
+
+            </div>
+       
+        </div>
+    </div>
+    
+</body>
+</html>
+                <!-- <script>
+                    window.onload = function() {
+                    var value = ${user.name};
+                    localStorage.setItem("inputValue", value);
+                    }
+                </script> -->
+                                <!-- <a href="@{'/byName/' + ${user.name}}" ><span th:text="${user.name}"></span></a><br> -->
+                                <!-- <a href="@{'users/' + ${user.name}}" ><span th:text="${user.name}"></span></a><br> -->

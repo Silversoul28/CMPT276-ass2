@@ -70,7 +70,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.models.User;
@@ -91,16 +94,39 @@ public class UsersController {
         List<User> users = userRepo.findAll();
         // end of database call
         model.addAttribute("us", users);
-        return "users/showAll";
+        return "users/Start";
     }
+
+    @GetMapping("/users/{name}")
+    public String getUser(@PathVariable("name") String name, Model model){
+        System.out.println("Getting user");
+        // get all users from database
+        List<User> users = userRepo.findByName(name);
+        // end of database call
+        model.addAttribute("us", users);
+        return "users/Users";
+    }
+    // @RequestMapping(value = "/users/{name}", method=RequestMethod.GET)
+    // public String getUser(@RequestParam("name") String name, Model model){
+    //     System.out.println("Getting user");
+    //     // get all users from database
+    //     List<User> users = userRepo.findByName(name);
+    //     // end of database call
+    //     model.addAttribute("us", users);
+    //     return "users/Users";
+    // }
 
     @PostMapping("/users/add")
     public String addUser(@RequestParam Map<String, String> newuser, HttpServletResponse response){
         System.out.println("ADD user");
         String newName = newuser.get("name");
-        String newPwd = newuser.get("password");
-        int newSize = Integer.parseInt(newuser.get("size"));
-        userRepo.save(new User(newName,newPwd,newSize));
+        int newWeight = Integer.parseInt(newuser.get("weight"));
+        int newHeight = Integer.parseInt(newuser.get("height"));
+        int newGpa = Integer.parseInt(newuser.get("gpa"));
+        String newColour = newuser.get("colour");
+
+        //userRepo.save(new User(newName,newPwd,3, 4, 2, "#000000"));
+        userRepo.save(new User(newName,newWeight, newHeight, newGpa, newColour));
         response.setStatus(201);
         return "users/addedUser";
     }

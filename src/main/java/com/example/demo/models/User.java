@@ -9,14 +9,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int uid;
     private String name;
-    private String password;
-    private int size;
+    private int weight;
+    private int height;
+    private int gpa;
+    private String colour;
     public User() { 
     }
-    public User(String name, String password, int size) {
+    public User(String name, int weight, int height, int gpa, String colour) {
         this.name = name;
-        this.password = password;
-        this.size = size;
+        this.weight = weight;
+        this.height = height;
+        this.gpa = gpa;
+        this.colour = colour;
+
     }
 
     public String getName() {
@@ -27,22 +32,32 @@ public class User {
         this.name = name;
     }
 
-    public String getPassword() {
-        return password;
-    }
+    
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
-
-    public int getSize() {
-        return size;
+    public int getWeight() {
+        return weight;
     }
-
-    public void setSize(int size) {
-        this.size = size;
+    public void setHeight(int height) {
+        this.height = height;
     }
-
+    public int getHeight() {
+        return height;
+    }
+    public int getGpa() {
+        return gpa;
+    }
+    public void setGpa(int gpa) {
+        this.gpa = gpa;
+    }
+    public String getColour() {
+        return colour;
+    }
+    public void setColour(String colour) {
+        this.colour = colour;
+    }
     public int getUid() {
         return uid;
     }
@@ -50,5 +65,14 @@ public class User {
     public void setUid(int uid) {
         this.uid = uid;
     }
+    // public int getSize() {
+    //     return size;
+    // }
+
+    // public void setSize(int size) {
+    //     this.size = size;
+    // }
+
+
     
 }
