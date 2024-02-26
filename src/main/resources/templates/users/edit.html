@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script>
+    <!-- <script>
         function edit(evt){
              
             // if ((edi=="name")) {
@@ -21,7 +21,7 @@
             document.getElementById(evt).style.fontSize = "25px";
         }
 
-    </script>
+    </script> -->
 </head>
 <body>
     <h1>What Do You Want To Edit?</h1>
@@ -40,32 +40,36 @@
     <div th:style="'float:left'">
         <input id="colour" class="btnn" type="button" value="Colour" onclick="edit('colour')"></input>
     </div> -->
-    <form action="/users/add" method="post">
-                    
-        <div class="mb-3">
+    <!-- <form th:action="'/users/update/' + ${user.uid}" > -->
+           
+        <!-- <form th:action="@{/user/update/{uid}(uid=${user.uid})}" method="post">     -->
+            <div th:each="user:${usss}">
+            <!-- <form method="POST"  th:action="@{/user/update/{uid}(uid=${user.uid})}"> -->
+                <form th:action="'/users/update/' + ${user.uid}" >
+            <div class="mb-3">
             
             <input type="text" id="name" name="name" class="form-control form-control-lg" 
-                value="Name">
+                th:value="${user.name}">
         </div>
 
         <div class="mb-3">
             
             <input type="number" id="weight" name="weight" class="form-control form-control-lg" 
-                placeholder="Weight">
+            th:value="${user.weight}">
         </div>
         <div class="mb-3">
             
             <input type="number" id="height" name="height" class="form-control form-control-lg" 
-            placeholder="Height">
+            th:value="${user.height}">
         </div>
         <div class="mb-3">
             
             <input type="number" id="gpa" name="gpa" value="" class="form-control form-control-lg" 
-            placeholder="Gpa">
+            th:value="${user.gpa}" >
         </div>
         <div class="mb-3">
             
-            <input type="color" id="colour" name="colour" class="form-control form-control-lg" >
+            <input type="color" id="colour" name="colour" class="form-control form-control-lg" th:value="${user.colour}" >
         </div>
     
         <!-- Submit button -->
@@ -77,5 +81,8 @@
         
         
     </form>
+    </div>
 </body>
 </html>
+
+<!-- th:value="${user.gpa}" -->

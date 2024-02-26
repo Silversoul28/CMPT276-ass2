@@ -3,15 +3,14 @@
     float: left;
   }
 
-  .container {
-    /* Set this to the positioning context */
+   /* .container {
+
     position: relative;
 }
 
 .centered-div {
-    /* Center the div horizontally */
-    position: absolute;
+        position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    /* Add additional styling as needed */
-}
+
+}  */

@@ -65,13 +65,6 @@ public class User {
     public void setUid(int uid) {
         this.uid = uid;
     }
-    // public int getSize() {
-    //     return size;
-    // }
-
-    // public void setSize(int size) {
-    //     this.size = size;
-    // }
 
 
     
