@@ -68,6 +68,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -80,6 +81,8 @@ import com.example.demo.models.User;
 import com.example.demo.models.UserRepository;
 
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 public class UsersController {  
@@ -106,6 +109,24 @@ public class UsersController {
         model.addAttribute("uss", users);
         return "users/Users";
     }
+
+    @Transactional
+    @GetMapping("delete/{uid}")
+    public String deleteUser(@PathVariable("uid") int uid){
+       // List<User> user=userRepo.findByUid(uid);
+        userRepo.deleteByUid(uid);
+
+        return "redirect:/users/view";
+    }
+
+    @Transactional
+    @GetMapping("edit/{uid}")
+    public String editUser(@PathVariable("uid") int uid, Model model){
+        List<User> users=userRepo.findByUid(uid);
+        //userRepo.deleteByUid(uid);
+        model.addAttribute("usss", users);
+        return "redirect:/edit.html";
+    }
     // @RequestMapping(value = "/users/{name}", method=RequestMethod.GET)
     // public String getUser(@RequestParam("name") String name, Model model){
     //     System.out.println("Getting user");
@@ -128,6 +149,14 @@ public class UsersController {
         //userRepo.save(new User(newName,newPwd,3, 4, 2, "#000000"));
         userRepo.save(new User(newName,newWeight, newHeight, newGpa, newColour));
         response.setStatus(201);
-        return "users/addedUser";
+        return "redirect:view";
     }
+    
+    // @PostMapping("users/view")
+    // public String redirect() {
+    //     //TODO: process POST request
+        
+    //     return "users/Start";
+    // }
+    
 }

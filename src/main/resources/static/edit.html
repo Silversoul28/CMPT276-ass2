@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function edit(evt){
+             
+            // if ((edi=="name")) {
+            //     document.getElementById("Name").style.fontSize = "25px";
+            // }else if ((edi=="weight")) {
+            //     window.location.href = "/edit/" + edi + "/1";
+            // }else if ((edi=="height")) {
+            //     window.location.href = "/edit/" + edi + "/2";
+            // }else if ((edi=="gpa")) {
+            //     window.location.href = "/edit/" + edi + "/3";
+            // }else if ((edi=="colour")) {
+            //     window.location.href = "/edit/" + edi + "/4";
+            // }
+            document.getElementById(evt).style.fontSize = "25px";
+        }
+
+    </script>
+</head>
+<body>
+    <h1>What Do You Want To Edit?</h1>
+    <!-- <div th:style="'float:left'">
+        <input id="name" class="btnn" type="button" value="Name" onclick="edit('name')"></input>
+    </div>
+    <div th:style="'float:left'">
+        <input id="weight" class="btnn" type="button" value="Weight" onclick="edit('weight')"></input>
+    </div>
+    <div th:style="'float:left'">
+        <input id="height" class="btnn" type="button" value="Height" onclick="edit('height')"></input>
+    </div>
+    <div th:style="'float:left'">
+        <input id="gpa" class="btnn" type="button" value="Gpa" onclick="edit('gpa')"></input>
+    </div>
+    <div th:style="'float:left'">
+        <input id="colour" class="btnn" type="button" value="Colour" onclick="edit('colour')"></input>
+    </div> -->
+    <form action="/users/add" method="post">
+                    
+        <div class="mb-3">
+            
+            <input type="text" id="name" name="name" class="form-control form-control-lg" 
+                value="Name">
+        </div>
+
+        <div class="mb-3">
+            
+            <input type="number" id="weight" name="weight" class="form-control form-control-lg" 
+                placeholder="Weight">
+        </div>
+        <div class="mb-3">
+            
+            <input type="number" id="height" name="height" class="form-control form-control-lg" 
+            placeholder="Height">
+        </div>
+        <div class="mb-3">
+            
+            <input type="number" id="gpa" name="gpa" value="" class="form-control form-control-lg" 
+            placeholder="Gpa">
+        </div>
+        <div class="mb-3">
+            
+            <input type="color" id="colour" name="colour" class="form-control form-control-lg" >
+        </div>
+    
+        <!-- Submit button -->
+        
+        <div class="d-grid gap-2">
+            <input class="btn btn-primary" type="submit" value="SEND"></input>
+        </div>
+
+        
+        
+    </form>
+</body>
+</html>

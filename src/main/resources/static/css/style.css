@@ -2,3 +2,16 @@
     text-align: center;
     float: left;
   }
+
+  .container {
+    /* Set this to the positioning context */
+    position: relative;
+}
+
+.centered-div {
+    /* Center the div horizontally */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    /* Add additional styling as needed */
+}

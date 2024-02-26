@@ -1,6 +1,8 @@
 // var n=window.prompt("Name?", "Brooklyn")
-// // window.alert("Hello "+ n)
+//  window.alert("Hello "+ n)
 // console.log("Hello " + n)
+
+
 
 
 // for(var i=0;i<10;i++){
